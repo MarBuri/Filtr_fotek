@@ -1,5 +1,6 @@
 from PIL import Image
 import time
+import os
 def filtr1():
     # Otevření obrázku
     obrazek = Image.open("idk.jpg")
@@ -84,29 +85,32 @@ def filtr3():
 
 
 
+### cyklus / uživatelská volba / aktivace funkce / návrat?
 
 while True:
     cislo = int(input("""
     -------------------------------------------
-        Zvolte si filtr mezi čísly 1-3:  """))
+        Zvolte si filtr mezi čísly 1-3
+    -------------------------------------------
+        Zvolením čísla 0 se program vypne 
+    -------------------------------------------  : """))
 
     if 1 <= cislo <= 3:
-        print(cislo)
+        print(f"Právě se otevírá fotka s filtrem{cislo}")
     
         if cislo == 1:
             filtr1()
-    
+
         elif cislo == 2:
             filtr2()
+
         elif cislo == 3:
             filtr3()
     
         time.sleep(1)
-
+        os.system('cls')
+    elif cislo == 0:
+        break
     else:
-        print("Zadali jste číslo mimo povolený rozsah (1-2).")
+        print("Zadali jste číslo mimo povolený rozsah (1-3).")
 
-    
-
-
-### cyklus / uživatelská volba / aktivace funkce / návrat?
